@@ -1,0 +1,126 @@
+### 1. EkataYan Deep Dive
+
+**Core Problem:**
+EkataYan solves the problems that groups face when planning trips in Sri Lanka. Trip information is usually scattered across WhatsApp chats, spreadsheets, expense notes, weather apps, and different search tabs. This makes it difficult for groups to agree on an itinerary, manage expenses, discover places, and keep everyone updated in one place.
+
+**My Role:**
+EkataYan was a team project for the IIT InfoSchol induction programme. I worked mainly as the **Full-Stack Developer**, with a stronger focus on the backend.
+
+My responsibilities included:
+
+* Developing the Flask backend and REST API
+* Working with Supabase for database, authentication, storage, and realtime functionality
+* Integrating the backend with the Kotlin Android application using Retrofit
+* Working on the AI itinerary generation functionality
+* Implementing the group/trip and expense-related functionality
+* Helping integrate and connect the different parts of the application
+
+The project team was Team #5, and EkataYan achieved **1st Runner-Up at the IIT InfoSchol Demo Day**.
+
+**Key Features:**
+
+* AI-powered personalized Sri Lankan trip itinerary generation
+* Group Hub for managing trips and coordinating with group members
+* Shared LKR expense tracking and settlement
+* Trip discovery, wishlist, weather information, and group planning
+* Trip invitation and notification functionality
+
+**Technical Challenges & Solutions:**
+
+1. **AI itinerary generation:** We initially experimented with different AI models, but the output quality and integration were inconsistent. We tested multiple approaches and eventually used Gemini because it produced more suitable structured travel-planning responses for the application.
+
+2. **Realtime group functionality:** We needed users to receive trip invitation/notification updates without manually refreshing the application. We implemented a notification system using Supabase database triggers, realtime functionality, RLS policies, and a unique index to prevent duplicate notifications.
+
+**Tech Stack:**
+Kotlin, Android XML, MVVM, Retrofit, Flask, Python, Supabase, REST API, Gemini AI, Railway.
+
+**Demo:**
+I currently have the project/demo materials available, but do not add a fake live demo or APK link. Only add a link if I provide a valid one.
+
+---
+
+### 2. LearnIT
+
+**Project:** LearnIT
+
+LearnIT is an educational website created for Grade 10 Science students.
+
+**Technologies:**
+HTML, CSS, JavaScript
+
+**Features:**
+
+* Science lessons
+* Interactive quizzes
+* Past papers
+* Student-friendly educational content
+
+The project is hosted using GitHub Pages.
+
+Use the repository/demo link and screenshots already available in the project if they exist. Do not invent links or images.
+
+---
+
+### 3. Higher Education
+
+I am currently following the **IIT InfoSchol pathway at the Informatics Institute of Technology (IIT), Colombo**, with the intention of progressing into a Computer Science degree.
+
+I have completed the IIT InfoSchol induction programme, which covered areas such as:
+
+* Software Development Life Cycle
+* Enterprise Software Development
+* Corporate Communication
+* Business Agility
+* Teamwork and collaboration
+
+Do not state that I have already started the degree if the project files currently describe me as an incoming/student applicant. Keep the education section accurate to my current status.
+
+---
+
+### 4. Resume / CV
+
+Do not add a fake resume PDF or fake download link.
+
+If `resume.pdf` exists in the `public/` folder, add a professional **Download CV / Resume** button.
+
+If it does not exist, leave the button out for now rather than creating a fake file.
+
+---
+
+### 5. Other Work & Career Direction
+
+My main areas of interest are:
+
+* Full-Stack Development
+* Backend Development
+* Android / Mobile Development
+* AI-powered applications
+* REST APIs
+* Database development
+
+Other relevant experience/projects include:
+
+* LearnIT educational website
+* EkataYan AI-powered travel platform
+* Web development using HTML, CSS and JavaScript
+* Python programming
+* PHP and SQL/database work
+
+### Portfolio Style
+
+Keep the portfolio professional, modern, and **human-designed rather than obviously AI-generated**.
+
+The portfolio should feel like it belongs to a young software developer who is actively building real projects—not like a generic AI portfolio template.
+
+Prioritize:
+
+* Clear storytelling
+* Authentic project descriptions
+* Good spacing and typography
+* Easy navigation
+* Strong mobile responsiveness
+* Recruiter-friendly information hierarchy
+* Technical depth without overwhelming visitors
+* Showing what I actually built rather than exaggerating my experience
+
+Do not invent achievements, technologies, links, job titles, degree status, or project features that I have not provided.
