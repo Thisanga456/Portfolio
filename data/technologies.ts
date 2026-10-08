@@ -11,26 +11,51 @@ export type TechCategory = {
 
 export const technologies: readonly TechCategory[] = [
   {
-    category: "BUILD",
+    category: "MOBILE",
     items: [
       {
         name: "Kotlin",
-        context: "Primary language for Android development",
+        context: "Primary language for Android application development",
         relatedTo: ["EkataYan"],
       },
       {
-        name: "Android",
-        context: "Native Android platform and SDK",
+        name: "Android SDK",
+        context: "Native Android architecture, UI layouts & lifecycle",
         relatedTo: ["EkataYan"],
       },
-      {
-        name: "XML",
-        context: "UI layouts and resource definitions",
-        relatedTo: ["EkataYan"],
-      },
+    ],
+  },
+  {
+    category: "BACKEND",
+    items: [
       {
         name: "Python",
-        context: "Backend scripting and API logic",
+        context: "Backend services, data handling & AI integration",
+        relatedTo: ["EkataYan"],
+      },
+      {
+        name: "Flask",
+        context: "Lightweight Python REST API framework",
+        relatedTo: ["EkataYan"],
+      },
+      {
+        name: "REST APIs",
+        context: "Clean endpoint design and client-server integration",
+        relatedTo: ["EkataYan"],
+      },
+    ],
+  },
+  {
+    category: "DATABASE",
+    items: [
+      {
+        name: "Supabase",
+        context: "Auth, cloud storage and real-time backend",
+        relatedTo: ["EkataYan"],
+      },
+      {
+        name: "PostgreSQL / SQL",
+        context: "Relational database schema modeling & queries",
         relatedTo: ["EkataYan"],
       },
     ],
@@ -39,49 +64,24 @@ export const technologies: readonly TechCategory[] = [
     category: "WEB",
     items: [
       {
-        name: "HTML",
-        context: "Semantic document structure",
-        relatedTo: [],
+        name: "Next.js & React",
+        context: "Modern web development with SSR & App Router",
+        relatedTo: ["Portfolio"],
       },
       {
-        name: "CSS",
-        context: "Styling, layout, animation",
-        relatedTo: [],
+        name: "TypeScript",
+        context: "Type-safe frontend and backend code",
+        relatedTo: ["Portfolio"],
+      },
+      {
+        name: "HTML / CSS",
+        context: "Semantic markup, responsive layouts and styling",
+        relatedTo: ["LearnIT", "Portfolio"],
       },
       {
         name: "JavaScript",
-        context: "Client-side scripting",
-        relatedTo: [],
-      },
-      {
-        name: "Next.js",
-        context: "React framework — this portfolio",
-        relatedTo: ["Portfolio"],
-      },
-    ],
-  },
-  {
-    category: "BACKEND",
-    items: [
-      {
-        name: "Flask",
-        context: "Python web framework for APIs",
-        relatedTo: ["EkataYan"],
-      },
-      {
-        name: "REST APIs",
-        context: "API design and integration",
-        relatedTo: ["EkataYan"],
-      },
-      {
-        name: "Supabase",
-        context: "Database, authentication and storage",
-        relatedTo: ["EkataYan"],
-      },
-      {
-        name: "PostgreSQL",
-        context: "Relational database via Supabase",
-        relatedTo: ["EkataYan"],
+        context: "Client-side interactivity and web applications",
+        relatedTo: ["LearnIT"],
       },
     ],
   },
@@ -89,26 +89,20 @@ export const technologies: readonly TechCategory[] = [
     category: "TOOLS",
     items: [
       {
-        name: "Git",
-        context: "Version control",
-        relatedTo: [],
-      },
-      {
-        name: "GitHub",
-        context: "Remote repositories",
-        relatedTo: [],
+        name: "Git & GitHub",
+        context: "Version control, branching & project tracking",
+        relatedTo: ["EkataYan", "Portfolio"],
       },
       {
         name: "Android Studio",
-        context: "IDE for Android development",
+        context: "Native Android development and device emulation",
         relatedTo: ["EkataYan"],
       },
       {
         name: "VS Code",
-        context: "General-purpose editor",
-        relatedTo: [],
+        context: "Code editor for web and full-stack projects",
+        relatedTo: ["Portfolio", "LearnIT"],
       },
     ],
   },
 ];
-

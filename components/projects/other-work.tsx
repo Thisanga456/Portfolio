@@ -2,76 +2,57 @@ import { experiments } from "@/data/experiments";
 
 export function OtherWork() {
   return (
-    <section
-      className="other-work-section"
-      id="experiments"
-      aria-labelledby="other-work-title"
-    >
-      <div className="other-work-header">
-        <div className="other-work-header-left">
-          <p className="eyebrow">[ 06 / OTHER WORK ]</p>
-        </div>
-        <div className="other-work-header-right">
-          <p
-            id="other-work-title"
-            className="other-work-kicker"
-            role="heading"
-            aria-level={2}
-          >
-            Selected Experiments
+    <section className="other-work-section" id="experiments" aria-labelledby="other-work-title">
+      <div className="section-container">
+        <div className="other-work-header">
+          <p className="section-label">ADDITIONAL PROJECTS</p>
+          <h2 id="other-work-title">Other Work &amp; Early Builds</h2>
+          <p className="other-work-intro">
+            Earlier web projects and learning builds exploring front-end technologies and educational tools.
           </p>
         </div>
-      </div>
 
-      <ul className="experiment-list" aria-label="Selected experiments">
-        {experiments.map((exp, index) => (
-          <li
-            key={exp.slug}
-            className={`experiment-item${exp.status === "pending" ? " experiment-item--pending" : ""}`}
-          >
-            <span className="experiment-num" aria-hidden="true">
-              {String(index + 1).padStart(2, "0")}
-            </span>
+        <ul className="experiment-list" aria-label="Selected experiments and builds">
+          {experiments.map((exp) => (
+            <li key={exp.slug} className="experiment-card">
+              <div className="experiment-header">
+                <div className="experiment-title-wrap">
+                  <h3 className="experiment-title">{exp.title}</h3>
+                  {exp.year && <span className="experiment-year-badge">{exp.year}</span>}
+                </div>
+                {exp.link ? (
+                  <a
+                    href={exp.link}
+                    className="experiment-link-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open ${exp.title}`}
+                  >
+                    <span>View Project</span>
+                    <b aria-hidden="true">↗</b>
+                  </a>
+                ) : (
+                  <span className="experiment-status-badge">Web Application</span>
+                )}
+              </div>
 
-            <div className="experiment-main">
-              <h3 className="experiment-title">{exp.title}</h3>
-              {exp.description ? (
+              {exp.description && (
                 <p className="experiment-desc">{exp.description}</p>
-              ) : (
-                <p className="experiment-desc experiment-desc--placeholder">
-                  Details to be added.
-                </p>
               )}
-              {exp.technologies.length > 0 && (
-                <p className="experiment-tech">
-                  {exp.technologies.join(" · ")}
-                </p>
-              )}
-            </div>
 
-            <div className="experiment-meta">
-              {exp.year && (
-                <span className="experiment-year">{exp.year}</span>
+              {exp.technologies.length > 0 && (
+                <div className="experiment-tech-tags" aria-label="Technologies">
+                  {exp.technologies.map((tech) => (
+                    <span key={tech} className="tech-pill tech-pill--sm">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               )}
-              {exp.link ? (
-                <a
-                  href={exp.link}
-                  className="experiment-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Open ${exp.title}`}
-                >
-                  <span>VIEW</span>
-                  <b aria-hidden="true">↗</b>
-                </a>
-              ) : (
-                <span className="experiment-link-placeholder" aria-hidden="true">—</span>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }
-

@@ -30,12 +30,17 @@ export const projects = [
     recognition: "IIT InfoSchol / 1st Runner-Up — Final Demo Day",
     technologies: ["Kotlin", "Android", "Flask", "Supabase"],
     image: {
-      src: "/images/ekatayan/home.png",
-      alt: "EkataYan application preview",
-      label: "PROJECT PREVIEW / IMAGE TO BE ADDED",
+      src: "/images/ekatayan/home.jpeg",
+      alt: "EkataYan home screen preview",
+      label: "EkataYan Home Screen",
     },
     featured: true,
-    links: [],
+    links: [
+      {
+        label: "GITHUB",
+        href: "https://github.com/EkataYan",
+      },
+    ],
   },
 ] as const satisfies readonly Project[];
 

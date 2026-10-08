@@ -1,85 +1,96 @@
-import { personal } from "@/data/personal";
+import { personal, educationHistory } from "@/data/personal";
 
 export function AboutSection() {
   return (
-    <section
-      className="about-section"
-      id="about"
-      aria-labelledby="about-title"
-    >
-      {/* Personal statement */}
-      <div className="about-top">
-        <div className="about-sidebar">
-          <p className="eyebrow">[ 04 / ABOUT ]</p>
-        </div>
-        <div className="about-content">
-          <h2 id="about-title" className="about-statement">
-            Building things
-            <br />
-            is how I learn.
-          </h2>
-          <div className="about-body">
-            <p>
-              I&apos;m an IT student interested in software development and
-              digital products. I enjoy taking a problem, breaking it down,
-              learning what I need to learn, and turning the idea into something
-              people can actually use.
+    <section className="about-section" id="about" aria-labelledby="about-title">
+      <div className="section-container">
+        {/* Story */}
+        <div className="about-grid">
+          <div className="about-intro-col">
+            <p className="section-label">ABOUT ME</p>
+            <h2 id="about-title" className="about-statement">
+              Curious about how systems work. Driven by building practical software.
+            </h2>
+          </div>
+
+          <div className="about-story-col">
+            <p className="lead-paragraph">
+              I&apos;m an IT student and aspiring developer based in Sri Lanka, focused on mobile application development, backend systems, and modern web software.
             </p>
             <p>
-              My recent work has focused on Android development, backend
-              systems, APIs, databases, and product design.
+              I learn best by building real projects from scratch. Rather than relying solely on tutorials, I like taking everyday problems, figuring out the architecture needed, and turning ideas into working, usable software.
             </p>
             <p>
-              I&apos;m currently looking for opportunities where I can keep
-              learning while contributing to real software projects.
+              My recent work includes <strong>EkataYan</strong>, a native Android group travel app built with Kotlin, Flask, and Supabase that was recognized as 1st Runner-Up at the IIT InfoSchol Demo Day, as well as <strong>LearnIT</strong>, an educational platform for school students.
+            </p>
+            <p>
+              Right now, I&apos;m continuing to deepen my skills across native Android architecture, REST API design, and databases, while actively looking for software development internships and project collaborations.
             </p>
           </div>
         </div>
-      </div>
 
-      {/* Education + Experience */}
-      <div className="background-grid">
-        <div className="background-label-col">
-          <span className="background-label">BACKGROUND</span>
-        </div>
-
-        <div className="edu-col">
-          <p className="background-sublabel">EDUCATION</p>
-          <h3 className="edu-institution">{personal.education.institution}</h3>
-          <div className="edu-meta">
-            <span>{personal.education.location}</span>
-            <span>
-              {personal.education.qualification} · {personal.education.year}
-            </span>
-          </div>
-
-          <div className="edu-subjects">
-            <p className="background-sublabel">SUBJECTS</p>
-            <ul className="edu-subject-list">
-              {personal.education.subjects.map((s) => (
-                <li key={s}>{s}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="edu-current">
-            <p className="background-sublabel">CURRENT DIRECTION</p>
-            <p>{personal.education.current}</p>
-          </div>
-        </div>
-
-        <div className="exp-col">
-          <p className="background-sublabel">EXPERIENCE</p>
-          {personal.experience.map((exp) => (
-            <div key={exp.role} className="exp-entry">
-              <h3 className="exp-role">{exp.role}</h3>
-              <p className="exp-detail">{exp.detail}</p>
-              <p className="exp-desc">{exp.description}</p>
+        {/* Education & Experience Details */}
+        <div className="background-grid">
+          <div className="edu-col">
+            <div className="sub-section-header">
+              <span className="section-sublabel">EDUCATION</span>
             </div>
-          ))}
+
+            <div className="edu-timeline">
+              {educationHistory.map((edu) => (
+                <div key={edu.qualification} className="edu-item">
+                  <div className="edu-item-top">
+                    <span className="edu-year">{edu.year}</span>
+                    <h3 className="edu-qualification">{edu.qualification}</h3>
+                  </div>
+                  {edu.stream && (
+                    <p className="edu-stream">
+                      {edu.stream}
+                      {edu.medium ? ` · ${edu.medium}` : ""}
+                    </p>
+                  )}
+                  {!edu.stream && edu.medium && (
+                    <p className="edu-stream">{edu.medium}</p>
+                  )}
+                  <p className="edu-institution">
+                    {edu.institution} — {edu.location}
+                  </p>
+
+                  <div className="edu-subjects-block">
+                    <ul
+                      className="edu-subject-chips"
+                      aria-label={`Subjects for ${edu.qualification}`}
+                    >
+                      {edu.subjects.map((sub) => (
+                        <li key={sub.name} className="edu-chip">
+                          <span className="sub-name">{sub.name}</span>
+                          <span className="sub-grade">{sub.grade}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="exp-col">
+            <div className="sub-section-header">
+              <span className="section-sublabel">EXPERIENCE</span>
+            </div>
+
+            <div className="exp-timeline">
+              {personal.experience.map((exp) => (
+                <div key={exp.role} className="exp-entry">
+                  <span className="exp-detail">{exp.detail}</span>
+                  <h3 className="exp-role">{exp.role}</h3>
+                  <p className="exp-desc">{exp.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-

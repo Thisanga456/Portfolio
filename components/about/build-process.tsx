@@ -1,61 +1,63 @@
 const steps = [
   {
+    num: "01",
     label: "PROBLEM",
-    desc: "Identify what is broken or missing. Start with a question worth answering.",
+    desc: "Identify what is broken or missing. Start with a real question worth answering.",
   },
   {
+    num: "02",
     label: "RESEARCH",
-    desc: "Look at what already exists. Understand the space before building in it.",
+    desc: "Study existing tools and user workflows. Understand the space before writing code.",
   },
   {
+    num: "03",
     label: "IDEA",
-    desc: "Define what to actually build. Shape the approach around real constraints.",
+    desc: "Define the core MVP scope. Shape the solution around practical constraints.",
   },
   {
+    num: "04",
     label: "DESIGN",
-    desc: "Work out structure before touching code. Think in screens, flows, and data.",
+    desc: "Map the architecture, data models, and screen flows before opening the editor.",
   },
   {
+    num: "05",
     label: "BUILD",
-    desc: "Write the code. Iterate quickly. Break things before users do.",
+    desc: "Write clean, modular code. Iterate quickly and test edge cases early.",
   },
   {
+    num: "06",
     label: "TEST",
-    desc: "Use it. Find where it falls short. Fix what breaks before shipping.",
+    desc: "Validate on real devices and with real data to find what breaks.",
   },
   {
+    num: "07",
     label: "SHIP",
-    desc: "Get it in front of people. Real use reveals what testing misses.",
+    desc: "Put the software into the hands of real users and learn from feedback.",
   },
 ] as const;
 
 export function BuildProcess() {
   return (
     <section className="build-section" id="build" aria-labelledby="build-title">
-      <div className="build-header">
-        <div className="build-header-left">
-          <p className="eyebrow">[ 03 / THE BUILD ]</p>
-        </div>
-        <div className="build-header-right">
-          <h2 id="build-title">How I work.</h2>
-          <p>
-            I learn through creating real products. Each project starts with a
-            problem worth solving and ends with something people can actually
-            use.
+      <div className="section-container">
+        <header className="build-header">
+          <p className="section-label">MY PROCESS</p>
+          <h2 id="build-title">How I approach building.</h2>
+          <p className="build-intro">
+            I learn by creating real applications. Each build starts with understanding practical problems and ends with working, tested software.
           </p>
-        </div>
-      </div>
+        </header>
 
-      <ol className="build-steps" aria-label="Build process">
-        {steps.map((step, i) => (
-          <li key={step.label} className="build-step">
-            <span className="build-step-num">0{i + 1}</span>
-            <strong className="build-step-label">{step.label}</strong>
-            <p className="build-step-desc">{step.desc}</p>
-          </li>
-        ))}
-      </ol>
+        <ol className="build-steps-list" aria-label="Development process steps">
+          {steps.map((step) => (
+            <li key={step.label} className="build-step-card">
+              <span className="build-step-number">{step.num}</span>
+              <strong className="build-step-name">{step.label}</strong>
+              <p className="build-step-text">{step.desc}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
     </section>
   );
 }
-

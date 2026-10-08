@@ -8,16 +8,15 @@ export type Experiment = {
   status: "pending" | "complete";
 };
 
-// TODO: Add real project details for LearnIt when available.
 export const experiments: readonly Experiment[] = [
   {
     slug: "learnit",
-    title: "LearnIt",
-    description: null, // TODO: Add real description
-    technologies: [], // TODO: Add technologies used
-    year: null, // TODO: Add year
+    title: "LearnIT",
+    description:
+      "LearnIT is an educational web platform designed to help students learn and revise school subjects through accessible digital learning resources. It provides a simple, student-friendly way to explore educational content online.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    year: "2021",
     link: null,
-    status: "pending",
+    status: "complete",
   },
 ];
-

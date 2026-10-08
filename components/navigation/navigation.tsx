@@ -4,11 +4,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navigationItems = [
-  { label: "WORK", href: "/#work" },
-  { label: "BUILD", href: "/#build" },
-  { label: "ABOUT", href: "/#about" },
-  { label: "STACK", href: "/#technologies" },
-  { label: "CONTACT", href: "/#contact" },
+  { label: "Work", href: "/#work" },
+  { label: "About", href: "/#about" },
+  { label: "Stack", href: "/#technologies" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navigation() {
@@ -26,12 +25,18 @@ export function Navigation() {
     <header className={`site-header ${isScrolled ? "site-header--scrolled" : ""}`}>
       <nav className="site-nav" aria-label="Primary navigation">
         <Link className="wordmark" href="/" onClick={() => setIsMenuOpen(false)}>
-          THISANGA<span aria-hidden="true">.</span>
+          THISANGA SENITHU
         </Link>
 
-        <div className="desktop-nav">
+        <div className="desktop-nav" role="navigation">
           {navigationItems.map((item) => (
-            <Link href={item.href} key={item.label}>{item.label}</Link>
+            <Link
+              href={item.href}
+              key={item.label}
+              className="nav-link"
+            >
+              {item.label}
+            </Link>
           ))}
         </div>
 
@@ -40,19 +45,32 @@ export function Navigation() {
           type="button"
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
+          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           onClick={() => setIsMenuOpen((open) => !open)}
         >
-          <span>{isMenuOpen ? "CLOSE" : "MENU"}</span>
+          <span>{isMenuOpen ? "Close" : "Menu"}</span>
           <i aria-hidden="true" />
         </button>
       </nav>
 
-      <div className={`mobile-nav ${isMenuOpen ? "mobile-nav--open" : ""}`} id="mobile-navigation">
-        {navigationItems.map((item, index) => (
-          <Link href={item.href} key={item.label} onClick={() => setIsMenuOpen(false)}>
-            <span>0{index + 1}</span>{item.label}
-          </Link>
-        ))}
+      <div
+        className={`mobile-nav ${isMenuOpen ? "mobile-nav--open" : ""}`}
+        id="mobile-navigation"
+        aria-hidden={!isMenuOpen}
+      >
+        <div className="mobile-nav-inner">
+          {navigationItems.map((item, index) => (
+            <Link
+              href={item.href}
+              key={item.label}
+              className="mobile-nav-link"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span className="mobile-nav-num">0{index + 1}</span>
+              <span className="mobile-nav-text">{item.label}</span>
+            </Link>
+          ))}
+        </div>
       </div>
     </header>
   );

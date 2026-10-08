@@ -2,55 +2,39 @@ import { technologies } from "@/data/technologies";
 
 export function TechnologiesSection() {
   return (
-    <section
-      className="tech-section"
-      id="technologies"
-      aria-labelledby="tech-title"
-    >
-      <div className="tech-header">
-        <div className="tech-header-left">
-          <p className="eyebrow">[ 05 / TECHNOLOGIES ]</p>
+    <section className="tech-section" id="technologies" aria-labelledby="tech-title">
+      <div className="section-container">
+        <div className="tech-header">
+          <p className="section-label">TECHNICAL SKILLS</p>
+          <h2 id="tech-title">Technologies I work with.</h2>
+          <p className="tech-intro">
+            Tools and languages I use to build mobile applications, backend services, and web products.
+          </p>
         </div>
-        <div className="tech-header-right">
-          <h2 id="tech-title">Technologies I&apos;ve worked with.</h2>
-        </div>
-      </div>
 
-      <div className="tech-grid" role="list">
-        {technologies.map((cat) => (
-          <div key={cat.category} className="tech-category" role="listitem">
-            <span className="tech-category-label">{cat.category}</span>
-            <ul
-              className="tech-list"
-              aria-label={`${cat.category} technologies`}
-            >
-              {cat.items.map((item) => (
-                <li
-                  key={item.name}
-                  className="tech-item"
-                  tabIndex={0}
-                  aria-label={`${item.name} — ${item.context}${item.relatedTo.length > 0 ? `, used in ${item.relatedTo.join(", ")}` : ""}`}
-                >
-                  <span className="tech-name" aria-hidden="true">
-                    {item.name}
-                  </span>
-                  <div className="tech-detail" aria-hidden="true">
-                    <div className="tech-detail-inner">
-                      <p className="tech-context">{item.context}</p>
+        <div className="tech-categories-grid" role="list">
+          {technologies.map((cat) => (
+            <div key={cat.category} className="tech-category-card" role="listitem">
+              <h3 className="tech-category-title">{cat.category}</h3>
+              <ul className="tech-category-list" aria-label={`${cat.category} technologies`}>
+                {cat.items.map((item) => (
+                  <li key={item.name} className="tech-card-item">
+                    <div className="tech-item-header">
+                      <strong className="tech-item-name">{item.name}</strong>
                       {item.relatedTo.length > 0 && (
-                        <p className="tech-related">
-                          ↳&nbsp;{item.relatedTo.join(" · ")}
-                        </p>
+                        <span className="tech-used-in">
+                          {item.relatedTo.join(", ")}
+                        </span>
                       )}
                     </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+                    <p className="tech-item-context">{item.context}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
-

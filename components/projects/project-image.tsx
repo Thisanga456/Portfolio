@@ -17,7 +17,10 @@ export function ProjectImage({ alt, label, src, title = "PROJECT", className = "
   return (
     <figure className={`project-image ${className}`}>
       {!isUnavailable ? (
-        <Image src={src} alt={alt} width={900} height={1600} unoptimized onError={() => setIsUnavailable(true)} />
+        <>
+          <Image src={src} alt={alt} width={900} height={1600} unoptimized onError={() => setIsUnavailable(true)} />
+          <figcaption>{label}</figcaption>
+        </>
       ) : (
         <div className="image-placeholder" role="img" aria-label={`${label} image placeholder`}>
           <span>{title.toUpperCase()}</span>
@@ -25,7 +28,6 @@ export function ProjectImage({ alt, label, src, title = "PROJECT", className = "
           <em>IMAGE PLACEHOLDER</em>
         </div>
       )}
-      <figcaption>{label}</figcaption>
     </figure>
   );
 }

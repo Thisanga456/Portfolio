@@ -6,102 +6,97 @@ import { personal } from "@/data/personal";
 export function ContactSection() {
   const [copied, setCopied] = useState(false);
 
-  const emailDisplay = personal.email || "[EMAIL TO BE ADDED]";
-  const githubDisplay = personal.socialLinks.github;
-  const linkedinDisplay = personal.socialLinks.linkedin;
+  const emailAddress = personal.email || "thissenithu1@gmail.com";
+  const githubUrl = personal.socialLinks.github;
+  const linkedinUrl = personal.socialLinks.linkedin;
 
   const handleCopyEmail = () => {
-    if (personal.email) {
-      navigator.clipboard.writeText(personal.email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2200);
-    } else {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2200);
-    }
+    navigator.clipboard.writeText(emailAddress);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2400);
   };
 
   return (
     <section className="contact-section" id="contact" aria-labelledby="contact-title">
-      <div className="contact-header">
-        <p className="eyebrow">[ 07 / CONTACT ]</p>
-      </div>
+      <div className="section-container">
+        <div className="contact-header">
+          <p className="section-label">GET IN TOUCH</p>
+          <h2 id="contact-title" className="contact-title">
+            Have a project, opportunity, or just want to connect?
+          </h2>
+          <p className="contact-intro">
+            I&apos;m currently open to software development internships, junior roles, and interesting project collaborations. Feel free to reach out directly.
+          </p>
+        </div>
 
-      <div className="contact-main">
-        <h2 id="contact-title" className="contact-heading">
-          HAVE AN IDEA?
-          <br />
-          <span>LET&apos;S BUILD SOMETHING USEFUL.</span>
-        </h2>
-
-        <div className="contact-actions">
-          {/* Email row with copy action */}
-          <div className="contact-email-box">
-            <span className="contact-label">DIRECT EMAIL</span>
-            <div className="contact-email-row">
-              <span className="contact-email-text">{emailDisplay}</span>
+        <div className="contact-grid">
+          {/* Email card */}
+          <div className="contact-card contact-card--primary">
+            <span className="contact-card-label">DIRECT EMAIL</span>
+            <div className="contact-email-val">{emailAddress}</div>
+            <div className="contact-card-actions">
               <button
                 type="button"
-                className="contact-copy-btn"
+                className="btn btn--primary"
                 onClick={handleCopyEmail}
-                aria-label={personal.email ? "Copy email address" : "Email placeholder"}
+                aria-label="Copy email address to clipboard"
               >
-                {copied
-                  ? personal.email
-                    ? "COPIED TO CLIPBOARD"
-                    : "EMAIL NOT YET SET"
-                  : personal.email
-                  ? "COPY EMAIL"
-                  : "EMAIL PLACEHOLDER"}
+                <span>{copied ? "Copied to Clipboard!" : "Copy Email"}</span>
+                <b aria-hidden="true">{copied ? "✓" : "📋"}</b>
               </button>
+              <a
+                href={`mailto:${emailAddress}`}
+                className="btn btn--outline"
+                aria-label={`Send email to ${emailAddress}`}
+              >
+                <span>Send Email</span>
+                <b aria-hidden="true">↗</b>
+              </a>
             </div>
           </div>
 
-          {/* Social links */}
-          <div className="contact-socials">
-            <span className="contact-label">CONNECT</span>
-            <ul className="contact-social-list" aria-label="Social media profiles">
-              <li>
-                {githubDisplay ? (
-                  <a
-                    href={githubDisplay}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-link"
-                  >
-                    <span>GITHUB</span>
-                    <b aria-hidden="true">↗</b>
-                  </a>
-                ) : (
-                  <span className="social-link social-link--placeholder">
-                    <span>GITHUB</span>
-                    <em>[LINK TO BE ADDED]</em>
-                  </span>
-                )}
-              </li>
-              <li>
-                {linkedinDisplay ? (
-                  <a
-                    href={linkedinDisplay}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-link"
-                  >
-                    <span>LINKEDIN</span>
-                    <b aria-hidden="true">↗</b>
-                  </a>
-                ) : (
-                  <span className="social-link social-link--placeholder">
-                    <span>LINKEDIN</span>
-                    <em>[LINK TO BE ADDED]</em>
-                  </span>
-                )}
-              </li>
-            </ul>
+          {/* Social cards */}
+          <div className="contact-social-cards">
+            {githubUrl && (
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-card"
+                aria-label="Visit GitHub profile"
+              >
+                <div className="social-card-info">
+                  <strong className="social-name">GitHub</strong>
+                  <span className="social-handle">@Thisanga456</span>
+                </div>
+                <span className="social-card-cta">
+                  <span>View Profile</span>
+                  <b aria-hidden="true">↗</b>
+                </span>
+              </a>
+            )}
+
+            {linkedinUrl && (
+              <a
+                href={linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-card"
+                aria-label="Visit LinkedIn profile"
+              >
+                <div className="social-card-info">
+                  <strong className="social-name">LinkedIn</strong>
+                  <span className="social-handle">Thisanga Senithu</span>
+                </div>
+                <span className="social-card-cta">
+                  <span>Connect</span>
+                  <b aria-hidden="true">↗</b>
+                </span>
+              </a>
+            )}
           </div>
         </div>
       </div>
     </section>
   );
 }
-
